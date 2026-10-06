@@ -177,7 +177,7 @@ export const ChatPane: React.FC<ChatPaneProps> = ({
       const isImg = file.type.startsWith('image/');
       const newMsg = await sendMessageApi(
         conversation.id,
-        isImg ? 'Photo' : file.filename,
+        isImg ? 'Photo' : file.name,
         isImg ? 'image' : 'file',
         uploaded.url,
         uploaded.filename

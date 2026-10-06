@@ -207,7 +207,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     <h3 className="text-xs font-bold text-gray-900 dark:text-white truncate flex items-center gap-1">
                       {title}
                       {c.disappearing_timer > 0 && (
-                        <Clock size={12} className="text-blue-500 shrink-0" title="Disappearing messages enabled" />
+                        <span title="Disappearing messages enabled">
+                          <Clock size={12} className="text-blue-500 shrink-0" />
+                        </span>
                       )}
                     </h3>
                     <span className="text-[10px] text-gray-400 shrink-0">
