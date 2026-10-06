@@ -36,7 +36,10 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       return;
     }
 
-    const wsUrl = `ws://localhost:8000/ws?token=${token}`;
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    const defaultWsUrl = apiBase.replace(/^http/, 'ws');
+    const wsBase = process.env.NEXT_PUBLIC_WS_URL || defaultWsUrl;
+    const wsUrl = `${wsBase}/ws?token=${token}`;
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
 
